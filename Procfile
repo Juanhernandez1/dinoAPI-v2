@@ -1,1 +1,1 @@
-web: deno run --allow-env  --allow-net=:${PORT} --cached-only --importmap import_map.json --unstable app.js --port=${PORT}
+web: deno run --allow-env  --allow-net --cached-only --importmap import_map.json --unstable app.js
