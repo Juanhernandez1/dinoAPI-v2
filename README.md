@@ -123,6 +123,9 @@ https://dinoapi-v2.herokuapp.com/login
 nota: 
 el token mostrado en login sera tomado desde cookie o puede copiarlo y enviarlo en cabezar  
 
+imágenes de pruebas en insomnia
+https://github.com/Juanhernandez1/dinoAPI-v2/tree/master/assets/Uso%20en%20insomnia
+
 auth_token : token
 
 ## Autor ✒️
