@@ -52,6 +52,6 @@ app.route("/Dinosaurios", DinoRouter(createRouter, contentTypeFilter));
 
 // Puerto de escucha
 const port = Number(Deno.env.get("PORT"));
-
+console.log(Deno.env.get("DBNAME"));
 // servidor en ejecucion
 app.listen({ port });
