@@ -1,7 +1,7 @@
 // funciones para realizar CRUD
-export default function controlDinosaurios(Dinosaurios) {
-  const getDinosaurios = async (req) => {
-    const objetos = await Dinosaurios.all();
+export default function controlSectores(Sector) {
+  const getSector = async (req) => {
+    const objetos = await Sector.all();
     await req.respond({
       status: 200,
       headers: new Headers({
@@ -11,9 +11,9 @@ export default function controlDinosaurios(Dinosaurios) {
     });
   };
 
-  const getDinosauriosID = async (req) => {
+  const getSectorID = async (req) => {
     const [_, id] = req.match;
-    const objetos = await Dinosaurios.find(id);
+    const objetos = await Sector.find(id);
     await req.respond({
       status: 200,
       headers: new Headers({
@@ -23,12 +23,11 @@ export default function controlDinosaurios(Dinosaurios) {
     });
   };
 
-  const insertDino = async (req) => {
-    console.log(req);
+  const ingresarSector = async (req) => {
     const bodyJson = await req.json();
     console.log(bodyJson);
 
-    await Dinosaurios.create(bodyJson);
+    await Sector.create(bodyJson);
 
     await req.respond({
       status: 200,
@@ -37,26 +36,24 @@ export default function controlDinosaurios(Dinosaurios) {
       }),
       body: JSON.stringify(
         {
-          mensaje: "los datos an sido ingresados",
+          mensaje: "los datos se an ingresados",
           datos: bodyJson,
         },
       ),
     });
   };
 
-  const actualizardino = async (req) => {
+  const actualizarSector = async (req) => {
     const bodyJson = await req.json();
     console.log(bodyJson);
 
     const dato = {
       nombre: bodyJson.nombre,
-      altura: bodyJson.altura,
-      id_abitad: bodyJson.id_abitad,
-      alimento: bodyJson.alimento,
+      id_encargado: bodyJson.id_encargado
     };
     console.log(dato);
 
-    await Dinosaurios.where("id_dino", bodyJson.id_dino).update(dato);
+    await Sector.where("id_sector", bodyJson.id_sector).update(dato);
 
     await req.respond({
       status: 200,
@@ -72,16 +69,18 @@ export default function controlDinosaurios(Dinosaurios) {
     });
   };
 
-  const eliminarDinoID = async (req) => {
+  const eliminarSectorID = async (req) => {
     const [_, id] = req.match;
+    console.log(id);
     try {
-      await Dinosaurios.where("id_dino", id).delete();
+      await Sector.where("id_sector", id).delete();
+
       await req.respond({
         status: 200,
         headers: new Headers({
           "content-type": "application/json",
         }),
-        body: JSON.stringify({ mensaje: "dinosaurio a sido eliminado" }),
+        body: JSON.stringify({ mensaje: "El registo a sido eliminado" }),
       });
     } catch (error) {
       await req.respond({
@@ -100,10 +99,10 @@ export default function controlDinosaurios(Dinosaurios) {
   };
 
   return {
-    getDinosaurios,
-    getDinosauriosID,
-    insertDino,
-    actualizardino,
-    eliminarDinoID,
+    getSector,
+    getSectorID,
+    ingresarSector,
+    actualizarSector,
+    eliminarSectorID,
   };
 }

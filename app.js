@@ -20,7 +20,13 @@ import getLoginData from "./src/controllers/login.js";
 
 // Importando Rutas
 import rutas from "./src/routes/routes.js";
-const { DinoRouter, EncargadoRouter } = rutas;
+const {
+  DinoRouter,
+  EncargadoRouter,
+  SectorRouter,
+  DinoPsectorRouter,
+  HabitadRouter,
+} = rutas;
 
 // Importando Conexión a la Base de Datos se Ejecución al Arranque del Servidor
 import db from "./src/DataBase/index.js";
@@ -49,6 +55,9 @@ app.route("/login", getLoginData);
 // Rutas
 app.route("/Encargados", EncargadoRouter(createRouter, contentTypeFilter));
 app.route("/Dinosaurios", DinoRouter(createRouter, contentTypeFilter));
+app.route("/Sectores", SectorRouter(createRouter, contentTypeFilter));
+app.route("/Habitad", HabitadRouter(createRouter, contentTypeFilter));
+app.route("/DinoPSector", DinoPsectorRouter(createRouter, contentTypeFilter));
 
 // Puerto de escucha
 const port = Number(Deno.env.get("PORT"));
