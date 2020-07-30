@@ -104,10 +104,26 @@ vr start
 ```
 
 ## Despliegue 📦
--- puede realizar pruevas con 
+-- puede realizar pruevas de forma local con 
  - insomnia
  - postman
 
+-- desde heroku
+
+https://dinoapi-v2.herokuapp.com/login 
+
+-- recuerde colocar basic auth en en todas las solicitudes  
+ - insomnia
+ - postman
+
+ username : juan
+
+ password: 1234
+
+nota: 
+el token mostrado en login sera tomado desde cookie o puede copiarlo y enviarlo en cabezar  
+
+auth_token : token
 
 ## Autor ✒️
 
