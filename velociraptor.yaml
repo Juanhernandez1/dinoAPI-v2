@@ -1,0 +1,4 @@
+# scripts.yaml
+scripts:
+  start: denon start
+  formato: deno fmt

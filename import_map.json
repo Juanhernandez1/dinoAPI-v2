@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "Base64": "https://deno.land/x/bb64/mod.ts",
+    "cdjwt": "https://deno.land/x/djwt/create.ts",
+    "denoHash": "https://deno.land/std/hash/mod.ts",
+    "denodb": "https://deno.land/x/denodb/mod.ts",
+    "fmt/": "https://deno.land/std/fmt/",
+    "servest": "https://deno.land/x/servest/mod.ts",
+    "vdjwt": "https://deno.land/x/djwt/validate.ts"
+  }
+}
