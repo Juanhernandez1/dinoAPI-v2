@@ -10,7 +10,7 @@ import {
 } from "../model/index.js";
 
 // gestor de base de datos
-const ADMINDB = Deno.env.get("DB");
+// const ADMINDB = Deno.env.get("DB");
 
 // objeto de configuracion para acceder poder conectarse a la base de datos
 const config = {
@@ -22,7 +22,7 @@ const config = {
 };
 
 // instanciado conecion a la base de datos
-const db = new Database(ADMINDB, config);
+const db = new Database("postgres", config);
 
 // comprobando la conecion
 db.ping().then((val) => {
