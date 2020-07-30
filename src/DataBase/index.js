@@ -14,15 +14,22 @@ import {
 
 // objeto de configuracion para acceder poder conectarse a la base de datos
 const config = {
-  username: Deno.env.get("USER"),
-  database: Deno.env.get("DBNAME"),
-  host: Deno.env.get("HOST"),
-  password: Deno.env.get("PASS"),
-  port: Number(Deno.env.get("PORTDB")),
+  username: "oqcgvltkjnstvv",
+  database: "d7p33dt3nmmk1o",
+  host: "ec2-3-208-50-226.compute-1.amazonaws.com",
+  password: "cdad51ce494d7d4660e0eeb7bd8c2653dd379994c7ce38c62b76e615933a23e8",
+  port: "5432",
 };
 
 // instanciado conecion a la base de datos
-const db = new Database("postgres", config);
+const db = new Database("postgres", {
+  uri:
+    "postgres://oqcgvltkjnstvv:cdad51ce494d7d4660e0eeb7bd8c2653dd379994c7ce38c62b76e615933a23e8@ec2-3-208-50-226.compute-1.amazonaws.com:5432/d7p33dt3nmmk1o",
+  username: "oqcgvltkjnstvv",
+  database: "d7p33dt3nmmk1o",
+  host: "ec2-3-208-50-226.compute-1.amazonaws.com",
+  password: "cdad51ce494d7d4660e0eeb7bd8c2653dd379994c7ce38c62b76e615933a23e8",
+});
 
 // comprobando la conecion
 db.ping().then((val) => {
